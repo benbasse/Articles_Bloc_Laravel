@@ -59,36 +59,27 @@ public function findArticles(Request $request, $idCategorie)
         return back();
     }
 //-----------------------------------------------------------------------------------------------
-
     public function show($id)
-    {
-        // $articles = Article::find($id);
-        // $categories = Categorie::where(
-        //     "id", '=' , $articles->categorie_id
-        // )->first();
-        // return view('articles.more', compact("articles", "categories"));
-        return view('articles.more');
+    {   
+        $articles = Article::find($id);
+        $categories = Categorie::where(
+            'id', '=', $id
+        );
+        return view('articles.more', compact("articles", "categories"));
+        
     }
 //-----------------------------------------------------------------------
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Article $article)
+    public function edit()
     {
-        //
+        return view("articles.modify");
     }
 //-----------------------------------------------------------------------
-
-
     public function update(Request $request, Article $article)
     {
         return view('articles');
     }
 //-----------------------------------------------------------------------
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Article $article)
     {
         //

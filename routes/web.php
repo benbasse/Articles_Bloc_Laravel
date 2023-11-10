@@ -46,7 +46,8 @@ Route::get('articles', [ArticleController::class,'index']);
 Route::get('/articles/ajouter', [ArticleController::class,'create']);
 Route::post('/articles/ajouter', [ArticleController::class,'store']);
 Route::get('/articles/{id}', [ArticleController::class,'findArticles']);
-// Route::get('/articles/{id}', [ArticleController::class,'show']);
+Route::get('/articles/more/{id}', [ArticleController::class,'show']);
+Route::get('articles/modify/{id}', [ArticleController::class,'edit']);
 // Route::get('/articles/modifier', [ArticleController::class,'update']);
 //--------------------------------------------------------------------------------------------
 

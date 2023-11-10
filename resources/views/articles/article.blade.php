@@ -18,7 +18,7 @@
                         <p class="card-text"><b>{{ $article->contenueArticle }}</b></p>
                     </div>
                     <div class="card-body">
-                        <a href="{{'/articles/more'. $article->id}}" class="card-link">
+                        <a href="{{'/articles/more/'. $article->id}}" class="card-link">
                             <button type="submit" class="btn btn-primary mt-4 ">More </button>
                         </a>
                     </div>
@@ -28,9 +28,6 @@
                 </div>
             </div>
             @endforeach
-
-
-
         </div>
     </div>
 @endsection()
