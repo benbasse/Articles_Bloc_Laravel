@@ -16,16 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () 
-{
-    return view('welcome');
-});
-
-
-// Route::get('/categories', function () 
+// Route::get('/', function () 
 // {
-//     return view('categories.categorie');
+//     return view('welcome');
 // });
+
 //------------------------------------Controller---------------------------------------------------------------
 Route::get('categories', [CategorieController::class,'index']);
 // Route::get('/categories/ajouter', function () 
@@ -51,6 +46,8 @@ Route::get('articles', [ArticleController::class,'index']);
 Route::get('/articles/ajouter', [ArticleController::class,'create']);
 Route::post('/articles/ajouter', [ArticleController::class,'store']);
 Route::get('/articles/{id}', [ArticleController::class,'findArticles']);
+// Route::get('/articles/{id}', [ArticleController::class,'show']);
+// Route::get('/articles/modifier', [ArticleController::class,'update']);
 //--------------------------------------------------------------------------------------------
 
 

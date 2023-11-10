@@ -46,7 +46,7 @@ public function findArticles(Request $request, $idCategorie)
         $article = new Article();
         $request->validate([
             "nomArticle"=> "required|string|max:100",
-            "contenueArticle"=> "required|string|max:100",
+            "contenueArticle"=> "required|string|max:1000",
         ]);
         $article->nomArticle = $request->nomArticle;
         $article->contenueArticle = $request->contenueArticle;
@@ -58,11 +58,16 @@ public function findArticles(Request $request, $idCategorie)
         }
         return back();
     }
-//-------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
 
-    public function show(Article $article)
+    public function show($id)
     {
-        //
+        // $articles = Article::find($id);
+        // $categories = Categorie::where(
+        //     "id", '=' , $articles->categorie_id
+        // )->first();
+        // return view('articles.more', compact("articles", "categories"));
+        return view('articles.more');
     }
 //-----------------------------------------------------------------------
     /**
@@ -74,12 +79,10 @@ public function findArticles(Request $request, $idCategorie)
     }
 //-----------------------------------------------------------------------
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Article $article)
     {
-        //
+        return view('articles');
     }
 //-----------------------------------------------------------------------
 
@@ -90,4 +93,7 @@ public function findArticles(Request $request, $idCategorie)
     {
         //
     }
+
 }
+
+
