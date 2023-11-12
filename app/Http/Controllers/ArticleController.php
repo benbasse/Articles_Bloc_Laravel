@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -69,15 +70,26 @@ public function findArticles(Request $request, $idCategorie)
         
     }
 //-----------------------------------------------------------------------
-    public function edit()
+    public function edit($id)
     {
-        return view("articles.modify");
+        $articles = Article::find($id);
+        $categories = Categorie::where(
+            'id', '=', $id
+        )->get();
+        return view("articles.modify", compact("articles","categories"));
     }
 //-----------------------------------------------------------------------
-    public function update(Request $request, Article $article)
-    {
-        return view('articles');
-    }
+public function update(Request $request)
+{
+    $article = DB::table('articles')
+            ->where('id', $request->id)
+            ->update([
+                'nomArticle' => $request->nomArticle,
+                'contenueArticle'=> $request->contenueArticle,
+            ]);
+    return redirect('articles');
+
+}
 //-----------------------------------------------------------------------
 
     public function destroy(Article $article)

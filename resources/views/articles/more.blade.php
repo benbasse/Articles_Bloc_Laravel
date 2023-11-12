@@ -15,12 +15,25 @@
                             <p class="card-text"><b>{{ $articles->contenueArticle }}</b></p>
                         </div>
                         <div class="card-body">
-                            <a href="#" class="card-link">
-                                <button type="submit" class="btn btn-primary mt-4 ">More </button>
+                            <a href="{{'/articles/modify/'. $articles->id}}" class="card-link">
+                                <button type="submit" class="btn btn-primary mt-4 ">Modify </button>
+                            </a>
+                            <a href="/comments/{{$articles->id}}">
+                                <button type="submit" class="btn btn-primary mt-4"> Comment</button>
+                            </a>
+                            <a href="#">
+                                <button type="submit" class="btn btn-primary mt-4"> List comments</button>
                             </a>
                         </div>
                         <div class="card-footer text-muted">
-                            {{ $articles->created_at }}
+                            <p style="text-align: center">
+                                <li>
+                                    here we'll have the comment 
+                                </li>
+                                <li>
+                                    {{ $articles->created_at }}
+                                </li>
+                            </p>
                         </div>
                     </div>
                 </div>
