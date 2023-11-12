@@ -18,32 +18,11 @@ use App\Http\Controllers\CategorieController;
 |
 */
 
-// Route::get('/', function () 
-// {
-//     return view('welcome');
-// });
-
 //------------------------------------Controller---------------------------------------------------------------
 Route::get('categories', [CategorieController::class,'index']);
-// Route::get('/categories/ajouter', function () 
-// {
-//     return view('categories.ajouterCategorie');
-// });
 Route::get('/categories/ajouter', [CategorieController::class, 'create']);
 Route::post('/categories/ajouter', [CategorieController::class,'store']);
-
-
 //---------------------------------------ARTICLES----------------------------------------------
-// Route::get('articles', function () 
-// {
-//     return view('articles.article');
-// });
-
-// Route::get('/articles/ajouter', function () 
-// {
-//     return view('articles.ajouter');
-// });
-
 Route::get('articles', [ArticleController::class,'index']);
 Route::get('/articles/ajouter', [ArticleController::class,'create']);
 Route::post('/articles/ajouter', [ArticleController::class,'store']);
